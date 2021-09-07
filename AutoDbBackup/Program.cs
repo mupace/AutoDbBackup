@@ -40,10 +40,10 @@ namespace AutoDbBackup
                     serviceCollection.AddLogging((logger) => logger.AddSerilog())
                         .AddSingleton<IDbBackupManager, DbBackupManager>()
                         .AddSingleton<IGDriveUploadManager, GDriveUploadManager>()
-                        .AddSingleton(typeof(RunTasks))
                         .BuildServiceProvider();
 
-                    serviceCollection.AddHostedService<DbBackupManager>();
+                    //serviceCollection.AddHostedService<DbBackupManager>();
+                    serviceCollection.AddHostedService<GDriveUploadManager>();
 
                 })
                 .Build();
@@ -52,36 +52,15 @@ namespace AutoDbBackup
             
 
 
-            //var serviceCollection = new ServiceCollection()
-            //    .AddLogging((logger) => logger.AddSerilog())
-            //    .AddSingleton<IDbBackupManager, DbBackupManager>()
-            //    .AddSingleton<IGDriveUploadManager, GDriveUploadManager>()
-            //    .AddSingleton(typeof(RunTasks))
-            //    .BuildServiceProvider();
-            ////.AddSingleton()
-
-            //var env = AppContext.GetData("Environment");
-
-
-            //var builder = new ConfigurationBuilder()
-            //    .AddJsonFile($"AppSettings.json", false, true)
-            //    .AddJsonFile($"AppSettings.{env}.json", true, true)
-            //    .AddUserSecrets(Assembly.Load("AutoDbBackup"))
-            //    .AddEnvironmentVariables();
-
-            //var config = builder.Build();
-
-            //Console.WriteLine("config" + config.GetValue<string>("GoogleDriveApi:ApiKeyJsonFile"));
 
             //ConfigurationManager
             Console.WriteLine("Hello World!");
 
 
-            var result = await host.Services.GetService<IDbBackupManager>().StartDbBackup();
+            //var result = await host.Services.GetService<IDbBackupManager>().StartDbBackup();
 
-            //var result = await serviceCollection.GetService<IDbBackupManager>().StartDbBackup();
+            //var uploadResult = await host.Services.GetService<IGDriveUploadManager>().UploadToGoogleDrive();
 
-            // var taskService = serviceCollection.GetService(typeof(RunTasks));
         }
     }
 }
