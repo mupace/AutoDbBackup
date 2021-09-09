@@ -76,7 +76,7 @@ namespace GDriveUploader
 
             Console.WriteLine("Uploading files");
             
-            var fileName = uploadFilepath.Split('/', StringSplitOptions.TrimEntries).Last();
+            var fileName = uploadFilepath.Split('\\', StringSplitOptions.TrimEntries).Last();
 
             using (var stream = new FileStream(uploadFilepath, FileMode.Open,
                 FileAccess.Read))

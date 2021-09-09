@@ -11,7 +11,6 @@
           "Autofac.Extensions.DependencyInjection": "7.1.0",
           "DbBackup": "1.0.0",
           "GDriveUploader": "1.0.0",
-          "Infra": "1.0.0",
           "Microsoft.Extensions.Configuration": "5.0.0",
           "Microsoft.Extensions.Configuration.Binder": "5.0.0",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "5.0.0",
@@ -926,15 +925,6 @@
         "runtime": {
           "GDriveUploader.dll": {}
         }
-      },
-      "Infra/1.0.0": {
-        "dependencies": {
-          "Serilog": "2.10.0",
-          "Serilog.AspNetCore": "4.1.0"
-        },
-        "runtime": {
-          "Infra.dll": {}
-        }
       }
     }
   },
@@ -1671,11 +1661,6 @@
       "sha512": ""
     },
     "GDriveUploader/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Infra/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
