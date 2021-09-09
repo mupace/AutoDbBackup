@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -24,8 +25,9 @@ namespace GDriveUploader
             configurationRoot.Bind(GoogleDriveSettings.SectionName, _driveSettings);
         }
 
-        public async Task<bool> UploadToGoogleDrive()
+        public async Task<bool> UploadToGoogleDrive(string uploadFilepath)
         {
+            Console.WriteLine("Checking google credentials");
             UserCredential credential;
 
             using (var stream = new FileStream(_driveSettings.ApiKeyJsonFile, FileMode.Open, FileAccess.Read))
@@ -42,6 +44,7 @@ namespace GDriveUploader
                 Console.WriteLine("Credential file saved to: " + credPath);
             }
 
+            Console.WriteLine("Checking application api");
             // Create Drive API service.
             var service = new DriveService(new BaseClientService.Initializer()
             {
@@ -70,13 +73,16 @@ namespace GDriveUploader
             {
                 Console.WriteLine("No files found.");
             }
-            //Console.Read();
 
-            using (var stream = new FileStream(@"F:\DbBackups\AdventureWorksLT2019.20210907.bak", FileMode.Open,
+            Console.WriteLine("Uploading files");
+            
+            var fileName = uploadFilepath.Split('/', StringSplitOptions.TrimEntries).Last();
+
+            using (var stream = new FileStream(uploadFilepath, FileMode.Open,
                 FileAccess.Read))
             {
                 var file = new Google.Apis.Drive.v3.Data.File();
-                file.Name = "AdventureWorksLT2019.20210907.bak";
+                file.Name = fileName;
                 
                 var createFileRequest = service.Files.Create(file, stream,
                     "application/octet-stream");
@@ -86,16 +92,6 @@ namespace GDriveUploader
             }
 
             return true;
-        }
-
-        public Task StartAsync(CancellationToken cancellationToken)
-        {
-            return UploadToGoogleDrive();
-        }
-
-        public Task StopAsync(CancellationToken cancellationToken)
-        {
-            return Task.CompletedTask;
         }
     }
 }

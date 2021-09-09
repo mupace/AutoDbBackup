@@ -23,7 +23,6 @@
   <ItemGroup>
     <ProjectReference Include="..\DbBackup\DbBackup.csproj" />
     <ProjectReference Include="..\GDriveUploader\GDriveUploader.csproj" />
-    <ProjectReference Include="..\Infra\Infra.csproj" />
   </ItemGroup>
 
   <ItemGroup>

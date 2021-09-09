@@ -38,28 +38,18 @@ namespace AutoDbBackup
                 .ConfigureServices((hostContext, serviceCollection) =>
                 {
                     serviceCollection.AddLogging((logger) => logger.AddSerilog())
-                        .AddSingleton<IDbBackupManager, DbBackupManager>()
                         .AddSingleton<IGDriveUploadManager, GDriveUploadManager>()
+                        .AddSingleton<IDbBackupManager, DbBackupManager>()
                         .BuildServiceProvider();
 
-                    //serviceCollection.AddHostedService<DbBackupManager>();
-                    serviceCollection.AddHostedService<GDriveUploadManager>();
-
+                    serviceCollection.AddHostedService<DbBackupManager>();
                 })
                 .Build();
 
             host.Run();
-            
-
-
 
             //ConfigurationManager
             Console.WriteLine("Hello World!");
-
-
-            //var result = await host.Services.GetService<IDbBackupManager>().StartDbBackup();
-
-            //var uploadResult = await host.Services.GetService<IGDriveUploadManager>().UploadToGoogleDrive();
 
         }
     }

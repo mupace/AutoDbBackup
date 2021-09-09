@@ -7,9 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbBackup", "DbBackup\DbBack
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GDriveUploader", "GDriveUploader\GDriveUploader.csproj", "{89F30DE9-E321-479E-8B56-6D04C08E70BE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infra", "Infra\Infra.csproj", "{024442CF-6E24-4A22-B0F5-6F9AF5AEEC19}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoDbBackup", "AutoDbBackup\AutoDbBackup.csproj", "{70D4AC2C-71AE-4398-BB20-4F19FFE59849}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoDbBackup", "AutoDbBackup\AutoDbBackup.csproj", "{70D4AC2C-71AE-4398-BB20-4F19FFE59849}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +23,6 @@ Global
 		{89F30DE9-E321-479E-8B56-6D04C08E70BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89F30DE9-E321-479E-8B56-6D04C08E70BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89F30DE9-E321-479E-8B56-6D04C08E70BE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{024442CF-6E24-4A22-B0F5-6F9AF5AEEC19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{024442CF-6E24-4A22-B0F5-6F9AF5AEEC19}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{024442CF-6E24-4A22-B0F5-6F9AF5AEEC19}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{024442CF-6E24-4A22-B0F5-6F9AF5AEEC19}.Release|Any CPU.Build.0 = Release|Any CPU
 		{70D4AC2C-71AE-4398-BB20-4F19FFE59849}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{70D4AC2C-71AE-4398-BB20-4F19FFE59849}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70D4AC2C-71AE-4398-BB20-4F19FFE59849}.Release|Any CPU.ActiveCfg = Release|Any CPU

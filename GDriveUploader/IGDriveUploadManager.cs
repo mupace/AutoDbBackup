@@ -3,8 +3,8 @@ using Microsoft.Extensions.Hosting;
 
 namespace GDriveUploader
 {
-    public interface IGDriveUploadManager : IHostedService
+    public interface IGDriveUploadManager
     {
-        Task<bool> UploadToGoogleDrive();
+        Task<bool> UploadToGoogleDrive(string uploadFilepath);
     }
 }

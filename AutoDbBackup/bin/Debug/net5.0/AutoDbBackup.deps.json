@@ -908,6 +908,7 @@
       },
       "DbBackup/1.0.0": {
         "dependencies": {
+          "GDriveUploader": "1.0.0",
           "Microsoft.Data.SqlClient": "3.0.0",
           "Serilog": "2.10.0",
           "Serilog.AspNetCore": "4.1.0"
